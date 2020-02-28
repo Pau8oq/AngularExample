@@ -1,5 +1,10 @@
-$primary-color: rgba(75, 219, 135, 0.2);
 
-.my-cl{
-    color: $primary-color;
+@import '../styles/base';
+
+@mixin my-block{
+    border: 1px solid yellow;
+}
+
+.active{
+    @include my-block;
 }
