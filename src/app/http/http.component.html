@@ -1,0 +1,25 @@
+
+<p>Http Component</p>
+
+<h1>Name: {{user?.name}}</h1>
+<h1>Age: {{user?.age}}</h1>
+
+<ul>
+    <li *ngFor='let user of users'>
+        <p>Name: {{user?.name}}</p>
+        <p>Age: {{user?.age}}</p>
+    </li>
+</ul>
+
+<div *ngIf='done'>Sum = {{sum}} </div>
+<div class="form-group">
+    <label>Enter first number</label>
+    <input class="form-control" type="number" name='number1' [(ngModel)]= "number1" >
+</div>
+<div class="form-group">
+    <label>Enter second number</label>
+    <input class="form-control" type="number" name='number2' [(ngModel)]= "number2" >
+</div>
+<div class="form-group">
+    <button class="btn btn-default" (click)="submit()">Send</button>
+</div>
