@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { User } from '../models/user';
@@ -45,6 +45,20 @@ export class HttpService{
         // return this.http.get('http://localhost:3000/sum', {params});
 
         return  num1 + num2;
+    }
+
+    //взагаліто можна було б і не вказувати явно  тип Кий  повертається  з меиоду 
+    //але  для  наглядності я вказав
+    postData(user:User): Observable<object> {
+
+        const body = {name: user.name, age:user.age};
+
+        //можна задати різні  заголовки  в запит 
+        const myHeaders = new HttpHeaders().set('Authorization','my-auth-token');
+
+        return this.http.post('path to httpPost method', body);
+        //або так якщо нам  всі  дані потрібно вдправляти
+        // return this.http.post('path to httpPost method', user);
     }
 
 
