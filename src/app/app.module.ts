@@ -14,6 +14,7 @@ import { AboutComponent } from './about/about.component';
 const  appRoutes: Routes = [
    {path: '', component: AppComponent},
    {path: 'about', component: AboutComponent},
+   {path: 'tmp/:id', component:TmpComponent},
    {path: '**', redirectTo: '/'}
 ];
 //як правило в кінці  вказуєм  шлях до сторінки 404
