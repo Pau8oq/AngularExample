@@ -1,7 +1,12 @@
 $primary-color: rgb(16, 151, 73);
 
+html{
+    font-size: 100%;
+}
+
 .my-cl{
+    font-size: 0.8rem;
     color: $primary-color;
-    display: inline-block;;
+    display: inline-block;
 }
 

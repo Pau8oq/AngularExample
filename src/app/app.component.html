@@ -1,6 +1,15 @@
 <nav>
     <a routerLink="" routerLinkActive="active" [routerLinkActiveOptions]="{exact:true}">Главная</a><br>
-    <a routerLink="/about" routerLinkActive="active">О сайте</a>
+    <a routerLink="/about" routerLinkActive="active">О сайте</a><br>
+    <a [routerLink]="['tmp','6']" [queryParams]="{'price':1200}" routerLinkActive="active">Tmp with id : 6</a><br>
+    <a routerLink="/item/5/detail" routerLinkActive="active">Item Detail</a><br>
+    <a routerLink="/item/5/stat" routerLinkActive="active">Item Statistic</a><br>
+    <button (click)='goHome()'>Go to Home</button>
+
+
+    <a [routerLink]="['tmp','6']" routerLinkActive="active">Tmp with id : 6</a>
+    <a routerLink="/pipe" routerLinkActive="active" >Pipe</a>
+
 </nav>
 
 
