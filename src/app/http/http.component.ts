@@ -38,4 +38,6 @@ export class HttpComponent implements OnInit{
         console.log('sum=' + this.sum);
     }
 
+    
+
 }

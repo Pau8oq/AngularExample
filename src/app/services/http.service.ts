@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams, HttpHeaders } from '@angular/common/http';
 import {Observable, throwError} from 'rxjs';
-import { map, catchError } from 'rxjs/operators';
+import { map, catchError, filter } from 'rxjs/operators';
 import { User } from '../models/user';
 
 
@@ -12,6 +12,18 @@ export class HttpService{
 
     getData(){
         return this.http.get('./assets/user.json');
+    }
+
+    getUser(): Observable<User[]>{
+        return this.http.get('./assets/user2.json').pipe(map(data=>{
+            let userList = data['userList'];
+            let tempUsers = userList.map(function(user:any){
+                return {name: user.userName, age: user.userAge};
+            });
+            var data1:User[];
+            data1 = tempUsers.filter(d=>d.age >= 30);
+            return data1;
+        }));
     }
 
     //data at user2.json are not fitable  for user (userAge, userName where in user class just name, age)

@@ -13,6 +13,7 @@ import { AboutComponent } from './about/about.component';
 import { ItemDetailComponent } from './item.detail/item.detail.component';
 import { ItemComponent } from './item/item.component';
 import { PipeComponent } from './pipe/pipe.component';
+import { AuthGuard } from './guards/auth.guard';
 
 
 const itemRoutes: Routes= [
@@ -22,7 +23,7 @@ const itemRoutes: Routes= [
 const  appRoutes: Routes = [
    {path: '', component: AppComponent},
    {path: 'about', component: AboutComponent},
-   {path: 'pipe', component: PipeComponent},
+   {path: 'pipe', component: PipeComponent, canActivate:[AuthGuard]},
    {path: 'tmp/:id', component:TmpComponent},
    {path: 'item/:id', component: ItemComponent},
    {path: 'item/:id', component: ItemComponent, children: itemRoutes},
@@ -38,7 +39,9 @@ const  appRoutes: Routes = [
       HttpComponent,
       ItemStatComponent,
       ItemDetailComponent,
-      ItemComponent
+      ItemComponent,
+      AboutComponent,
+      PipeComponent
    ],
    imports: [
       BrowserModule,
@@ -47,7 +50,10 @@ const  appRoutes: Routes = [
       FormsModule,
       RouterModule.forRoot(appRoutes)
    ],
-      providers: [PipeComponent],
+      providers: [
+         PipeComponent,
+         AuthGuard   
+      ],
       bootstrap: [
          AppComponent
       ]
