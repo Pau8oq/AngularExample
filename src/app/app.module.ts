@@ -12,6 +12,7 @@ import { HttpComponent } from './http/http.component';
 import { AboutComponent } from './about/about.component';
 import { ItemDetailComponent } from './item.detail/item.detail.component';
 import { ItemComponent } from './item/item.component';
+import { PipeComponent } from './pipe/pipe.component';
 
 
 const itemRoutes: Routes= [
@@ -21,6 +22,7 @@ const itemRoutes: Routes= [
 const  appRoutes: Routes = [
    {path: '', component: AppComponent},
    {path: 'about', component: AboutComponent},
+   {path: 'pipe', component: PipeComponent},
    {path: 'tmp/:id', component:TmpComponent},
    {path: 'item/:id', component: ItemComponent},
    {path: 'item/:id', component: ItemComponent, children: itemRoutes},
@@ -45,7 +47,7 @@ const  appRoutes: Routes = [
       FormsModule,
       RouterModule.forRoot(appRoutes)
    ],
-      providers: [],
+      providers: [PipeComponent],
       bootstrap: [
          AppComponent
       ]
